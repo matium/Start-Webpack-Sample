@@ -1,0 +1,208 @@
+//*
+/// for index.html
+@charset "utf-8";
+@import 'default';
+@import 'mq';
+
+// Color Value
+$bgColor: #505156;
+$textColor: #d1d5e1;
+$inputBgColor: #606167;
+$labelBgColor: #dededf;
+
+html {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	background-color: $bgColor;
+	@include tablet { font-size: 11.5pt; }
+	@include desktop { font-size: 11.5pt; }
+	@include xlarge { font-size: 13pt;}
+}
+
+/*
+ページ全体を囲うwrapper
+幅と高さをviewportいっぱいにする
+コンテンツは縦方向に並べる
+ */
+.wrapper {
+	@include display-flex;
+	@include flex-direction(column);
+	@include justify-content(space-between);
+	width: 100%;
+	min-height: 100vh;
+	padding: 48px 0 48px 0;
+
+	@include tablet {
+		padding: 12vh 0 12vh 0;
+	}
+
+	@include desktop {
+		padding: 14vh 0 10vh 0;
+	}
+
+	@include xlarge {
+		padding: 12vh 0 10vh 0;
+	}
+}
+
+// ヘッダーエリアの要素
+header {
+	width: 90%;
+	margin: 0 auto 0 auto;
+	text-align: center;
+	color: $textColor;
+
+	// ページタイトル
+	h1.title {
+		@include enFont('light');
+		font-size: 24pt;
+		@include text-shadow(rgba(0, 0, 0, 0.3) 2px 2px 0);
+		margin-bottom: 0.15em;
+
+		.webpack {
+			font-size: 105%;
+			font-weight: 700;
+		}
+
+		@include tablet { font-size: 37pt; }
+		@include desktop { font-size: 38pt; }
+		@include xlarge { font-size: 46pt; margin-bottom: 0.05em; }
+	}
+
+	.descr {
+		br {
+			display: none;
+			@include smp {
+				display: block;
+			}
+		}
+	}
+}
+
+// Reactが出力するアプリケーションのコンテナー
+#app {
+	@include flex(1 0);
+	position: relative;
+	width: 85%;
+	margin: 20px auto 0 auto;
+
+	@include tablet {
+		width: 77%;
+	}
+
+	// Reactアプリケーション領域
+	.app-container {
+		@include display-flex;
+		@include flex-direction(column);
+		@include justify-content(space-between);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	// 入力されたテキストを反映させるエリアのコンポーネント
+	.ReflectedText {
+		@include flex(1 0);
+		width: 100%;
+	}
+	// テキスト入力フォームのコンポーネント
+	.TextInput {
+		@include flex(0 0);
+		width: 100%;
+		margin: 20px auto 0 auto;
+
+		@include desktop { width: 470px; }
+		@include xlarge { width: 570px; }
+	}
+
+}
+
+/*
+入力されたテキストを反映させるエリアのコンポーネント
+ */
+.ReflectedText {
+	// 左右上下センタリング
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(center);
+	font-size: 30pt;
+	line-height: 1.45em;
+	letter-spacing: 0;
+	text-align: center;
+	word-break: break-all;
+
+	@include tablet { font-size: 39pt; }
+	@include desktop { font-size: 35pt; }
+	@include xlarge { font-size: 58pt; }
+}
+
+/*
+テキスト入力フォームのコンポーネント
+ */
+.TextInput {
+	position: relative;
+
+	// ラベル
+	.input-label {
+		position: relative;
+		z-index: 0;
+		width: 120px;
+		margin: 0 auto 0 auto;
+		padding: 0.35em 0 0.35em 0;
+		background-color: $labelBgColor;
+		color: $bgColor;
+		@include enFont('bold');
+		font-size: 10pt;
+		text-align: center;
+		@include border-top-radius(3px);
+
+		@include tablet {
+			width: 160px;
+			font-size: 13pt;
+			@include border-top-radius(6px);
+		}
+
+		@include desktop {
+			width: 130px;
+			font-size: 11pt;
+			@include border-top-radius(6px);
+		}
+	}
+
+	// テキスト入力
+	input[type="text"] {
+		position: relative;
+		z-index: 1;
+		display: block;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border: none;
+		width: 100%;
+		margin-top: -1px;
+		padding: 1em 1em 1em 1em;
+		font-size: 110%;
+		line-height: 1em;
+		color: #fff;
+		background-color: $inputBgColor;
+		@include border-radius(6px 6px);
+
+		@include input-placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		@include tablet {
+			font-size: 125%;
+		}
+
+		@include desktop {
+			font-size: 100%;
+		}
+
+		@include xlarge {
+			padding: 1.35em 1.5em 1.35em 1.5em;
+		}
+	}
+}

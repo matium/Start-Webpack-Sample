@@ -1,0 +1,51 @@
+//*
+/// reset & default style
+@charset "utf-8";
+@import "compass/reset";
+@import "compass/css3";
+// フォントのインポート
+@import url('https://fonts.googleapis.com/css?family=Heebo:300,400,700');
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	width: 100%;
+	margin: 0;
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 10.5pt;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Droid Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1.7em;
+	letter-spacing: 0.05em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #fff;
+	font-feature-settings: 'palt';
+	word-wrap: break-word;
+}
+
+/**
+ * 英語フォントを使用するmixin
+ * @param $weight 適用するフォントのweight 'light''regular''bold'から選ぶ
+ */
+@mixin enFont($weight: 'regular') {
+	font-family: "Heebo", sans-serif;
+	line-height: 1.25em;
+	letter-spacing: 0;
+	@if ($weight == 'bold') {
+		font-weight: 700;
+	}
+	@else if ($weight == 'light') {
+		font-weight: 300;
+	}
+	@else {
+		font-weight: 400;
+	}
+}

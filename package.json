@@ -1,0 +1,47 @@
+{
+  "name": "start-webpack-sample",
+  "version": "1.0.0",
+  "description": "webpackを使ったフロントエンド開発環境のサンプル",
+  "main": "./build/main.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack --watch & browser-sync start --config bs-config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matium/Start-Webpack-Sample.git"
+  },
+  "keywords": [
+    "webpack",
+    "React",
+    "TypeScript",
+    "Sass+Compass",
+    "開発環境",
+    "モックアップ"
+  ],
+  "author": "Keita Watanabe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matium/Start-Webpack-Sample/issues"
+  },
+  "homepage": "https://github.com/matium/Start-Webpack-Sample#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.0",
+    "compass-mixins": "^0.12.10",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "typescript": "^2.9.2",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "@types/react": "^16.4.4",
+    "@types/react-dom": "^16.0.6",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
