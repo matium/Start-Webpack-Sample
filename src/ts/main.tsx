@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import * as viewportUnitsBuggyfill from 'viewport-units-buggyfill';
 import ReflectedText from './components/ReflectedText';
 import TextInput from './components/TextInput';
 import '../scss/index.scss';
@@ -71,9 +72,8 @@ export class Main extends React.Component<MainProps, MainState> {
 
 // viewportUnitsBuggyfillはiOSのSafariでも表示領域=100vhにしてくれるライブラリ
 // 今回はフルスクリーンのアプリケーションなので使用している
-/*
 viewportUnitsBuggyfill.init();
 window.addEventListener('resize', viewportUnitsBuggyfill.refresh, true);
-*/
+
 // ビューにレンダリング
 ReactDOM.render(<Main defaultContents='(´･_･`)' />, document.querySelector('#app'));
